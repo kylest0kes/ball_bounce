@@ -8,7 +8,6 @@ from ball import Ball
 def add_ball_to_sim(sim, ball_count, m_x, m_y):
     print(f"ball count: {ball_count}")
     ball_count[0] += 1
-    # sim.clear_balls()
     for _ in range(ball_count[0]):
         ball = Ball(m_x, m_y)
         sim.add_ball(ball)
