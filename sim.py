@@ -15,6 +15,8 @@ class Sim:
         for ball in self.balls:
             ball.acc[1] += self.gravity
             
+    def check_for_collisions(self):
+        pass
     
     def update(self, dt):
         self.calculate_accelerations()

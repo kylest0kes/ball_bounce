@@ -8,7 +8,8 @@ from ball import Ball
 def add_ball_to_sim(sim, ball_count, m_x, m_y):
     ball_count[0] += 1
     for _ in range(ball_count[0]):
-        ball = Ball(m_x, m_y)
+        ball = Ball()
+        ball.pos[0], ball.pos[1] = m_x, m_y
         sim.add_ball(ball)
 
 if __name__ == '__main__':
