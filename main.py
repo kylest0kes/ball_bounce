@@ -6,7 +6,6 @@ from sim import Sim
 from ball import Ball
 
 def add_ball_to_sim(sim, ball_count, m_x, m_y):
-    print(f"ball count: {ball_count}")
     ball_count[0] += 1
     for _ in range(ball_count[0]):
         ball = Ball(m_x, m_y)
@@ -38,6 +37,8 @@ if __name__ == '__main__':
 
         dt = clock.tick(60) / 1000.0 * 3.5
         
+        sim.update(dt)
+        
         screen.fill("black")
 
         for ball in sim.balls:
@@ -46,4 +47,3 @@ if __name__ == '__main__':
         pygame.display.flip()
     
     pygame.quit()
-    
