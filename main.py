@@ -27,6 +27,10 @@ if __name__ == '__main__':
     while running:
         
         for e in pygame.event.get():
+            if e.type == pygame.WINDOWFOCUSLOST:
+                sim.is_paused = True
+            if e.type == pygame.WINDOWFOCUSGAINED:
+                sim.is_paused = False
             if e.type == pygame.QUIT:
                 running = False
             if e.type == pygame.KEYDOWN:
@@ -38,7 +42,8 @@ if __name__ == '__main__':
 
         dt = clock.tick(60) / 1000.0 * 3.5
         
-        sim.update(dt)
+        if not sim.is_paused:
+            sim.update(dt)
         
         screen.fill("black")
 
@@ -48,3 +53,4 @@ if __name__ == '__main__':
         pygame.display.flip()
     
     pygame.quit()
+    quit()
